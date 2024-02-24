@@ -4,9 +4,8 @@ import struct
 
 import cv2
 
-# HOST = '192.168.252.241'
-HOST = ''
-PORT = 8089
+HOST = '192.168.252.241'
+PORT = 8009
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print('Socket created')
@@ -17,6 +16,7 @@ s.listen(10)
 print('Socket now listening')
 
 conn, addr = s.accept()
+print("Client connected at ", addr)
 
 data = b'' ### CHANGED
 payload_size = struct.calcsize("L") ### CHANGED
