@@ -46,35 +46,29 @@ class SDNode:
         self.ds1 = 0
         self.ds2 = 0
         self.speed = 5
+        self.turnspeed = 1
 
     def getDSData(self):
         while True:
             self.ds1 = distance_sensor1.distance
             self.ds2 = distance_sensor2.distance
-
+            time.sleep(0.2)
 
     def selfDrive(self):
+        global motor1,motor2
         while True:
-            if(self.ds1 < 0.1 and self.ds2 < 0.1):
-                print("object avoidance")
+            if(self.ds1 < 0.5 and self.ds2 < 0.5):
                 motor1.backward(self.speed)
-                motor2.forward(self.speed)
-                time.sleep(1)
-            elif(self.ds1 > 0.1 and self.ds2 < 0.1):
-                print("turn left")
-                motor1.backward(self.speed)
-                motor2.forward(self.speed)
-                time.sleep(0.1)
-            elif(self.ds1 < 0.1 and self.ds2 > 0.1):
-                print("turn right")
                 motor2.backward(self.speed)
-                motor1.forward(self.speed)
-                time.sleep(0.1)
+            elif(self.ds1 > 0.5 and self.ds2 < 0.5):
+                motor2.backward(self.turnspeed)
+                motor1.forward(self.turnspeed)
+            elif(self.ds1 < 0.5 and self.ds2 > 0.5):
+                motor1.backward(self.turnspeed)
+                motor2.forward(self.turnspeed)
             else:
-                print("exploring")
                 motor1.forward(self.speed)
                 motor2.forward(self.speed)
-                time.sleep(0.1)
 
     def spawnThreads(self):
         threading.Thread(target=self.getDSData).start()
