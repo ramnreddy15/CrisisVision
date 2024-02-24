@@ -25,7 +25,7 @@ clientsocket.connect(('192.168.252.241',8009))
 while True:
     ret,frame=cap.read()
     frame = cv2.resize(frame,(640,480), interpolation=cv2.INTER_LINEAR)
-    result = model(frame)[0]
+    result = model(frame, conf=0.8)[0]
     # print(result)
     detections = sv.Detections.from_ultralytics(result)
     # print(detections)
