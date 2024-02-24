@@ -46,13 +46,13 @@ class SDNode:
         self.ds1 = 0
         self.ds2 = 0
         self.speed = 5
-        self.turnspeed = 1
+        self.turnspeed = 2
 
     def getDSData(self):
         while True:
             self.ds1 = distance_sensor1.distance
             self.ds2 = distance_sensor2.distance
-            time.sleep(0.2)
+            time.sleep(0.1)
 
     def selfDrive(self):
         global motor1,motor2
