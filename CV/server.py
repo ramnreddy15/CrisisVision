@@ -27,29 +27,27 @@ print('Socket now listening')
 conn, addr = s.accept()
 print("Client connected at ", addr)
 
-data = b'' ### CHANGED
-payload_size = struct.calcsize("L") ### CHANGED
+while(True):
+    bs = conn.recv(8)
+    (length,) = unpack('>Q', bs)
+    data = b''
+    while len(data) < length:
+        to_read = length - len(data)
+        data += conn.recv(4096 if to_read > 4096 else to_read)
 
-while True:
-
-    # Retrieve message size
-    while len(data) < payload_size:
-        data += conn.recv(4096)
-
-    packed_msg_size = data[:payload_size]
-    data = data[payload_size:]
-    msg_size = struct.unpack("L", packed_msg_size)[0] ### CHANGED
-
-    # Retrieve all data based on message size
-    while len(data) < msg_size:
-        data += conn.recv(4096)
-
-    frame_data = data[:msg_size]
-    data = data[msg_size:]
-
-    # Extract frame
-    frame = pickle.loads(frame_data)
-
-    # Display
-    cv2.imshow('frame', frame)
+    data = np.frombuffer(data, dtype='uint8').reshape((480,640,3))
+    data = cv2.rotate(data, cv2.ROTATE_180)
+    result = model(data, conf=0.2)[0]
+    detections = sv.Detections.from_ultralytics(result)
+    labels = [
+        model.model.names[class_id]
+        for class_id
+        in detections.class_id
+    ]
+    data = box_annotator.annotate(
+        scene=data, 
+        detections=detections,
+        labels=labels
+    )
+    cv2.imshow('frame', data)
     cv2.waitKey(1)
