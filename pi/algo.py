@@ -11,6 +11,10 @@ import socket
 import struct
 from picamera2 import Picamera2
 
+#Object Detection and Annotation
+import supervision as sv
+from ultralytics import YOLO
+
 #DS Sensor and Motor Drivers
 from src import ds
 from src import m
@@ -47,11 +51,20 @@ motor2 = m.Motor({
     }
 })
 
-#
+#You Only Look Once (YOLO)
+box_annotator = sv.BoxAnnotator(
+    thickness=2,
+    text_thickness=2,
+    text_scale=1
+)
+label_annotator = sv.LabelAnnotator()
 
 
 class SDNode:
     def __init__(self):
+        #Vehicles Object Detection Model
+        self.model = YOLO("yolov8n.pt")
+        #Vehicles Control Variables and Data
         self.ds1 = 0
         self.ds2 = 0
         self.speed = 5
@@ -82,12 +95,14 @@ class SDNode:
                 time.sleep(0.1)
                 motor1.stop()
                 motor2.stop()
+                time.sleep(0.1)
             elif(self.ds1 < 0.5 and self.ds2 > 0.5):
                 motor1.backward(self.turnspeed)
                 motor2.forward(self.turnspeed)
                 time.sleep(0.1)
                 motor1.stop()
                 motor2.stop()
+                time.sleep(0.1)
             else:
                 motor1.forward(self.speed)
                 motor2.forward(self.speed)
@@ -95,11 +110,26 @@ class SDNode:
     def imgProc(self):
         while True:
             frame = self.picam2.capture_array()
+            result = self.model(frame, conf=0.2)[0]
+            detections = sv.Detections.from_ultralytics(result)
+
+            labels = [
+                self.model.model.names[class_id]
+                for class_id
+                in detections.class_id
+            ]
+
+            frame = box_annotator.annotate(
+                scene=frame,
+                detections=detections,
+                labels=labels
+                )
+            
             frameS = frame.tobytes()
             message_size = struct.pack(">Q", len(frameS))
             self.clientsocket.sendall(message_size)
             self.clientsocket.sendall(frameS)
-
+           
     def spawnThreads(self):
         threading.Thread(target=self.getDSData).start()
         threading.Thread(target=self.selfDrive).start()
