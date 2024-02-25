@@ -10,7 +10,7 @@ export default function Page(){
         <div classname='w=screen h=3000 ${lexend.className}'>
             <Navbar></Navbar>
             <div className="text-black h-[1200px] bg-[#252422]">
-                <div className='absolute mb-8 text-6xl text-white top-[150px] w-full flex justify-center'>
+                <div className='absolute mb-8 text-6xl text-[#EB5E28] top-[150px] w-full flex justify-center'>
                     The Team
                 </div>
 

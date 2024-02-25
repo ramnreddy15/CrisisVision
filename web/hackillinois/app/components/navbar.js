@@ -37,9 +37,6 @@ export default function Navbar() {
                     <Link href='/videos' className="hover:underline">
                         Videos
                     </Link>
-                    <Link href='/about' className="hover:underline">
-                        About
-                    </Link>
                     <Link href='https://github.com/ramnreddy15/CrisisVision' passHref>
                         <Image src="/pngegg.png" alt="GitHub" width={40} height={40} />
                     </Link>

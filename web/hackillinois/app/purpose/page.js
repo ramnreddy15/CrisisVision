@@ -10,7 +10,7 @@ export default function Page() {
         <div classname='w-screen h-[1000px] bg-[#252422] ${lexend.className}'>
             <Navbar></Navbar>
             <div className="w-full h-[900px] bg-[#252422]">
-                <div className='relative text-6xl text-white top-[150px] left-[7.5%] w-[85%] flex justify-center'>
+                <div className='relative text-6xl text-[#EB5E28] top-[150px] left-[7.5%] w-[85%] flex justify-center'>
                     Purpose
                 </div>
                

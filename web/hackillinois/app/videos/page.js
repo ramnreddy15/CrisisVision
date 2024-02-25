@@ -7,7 +7,7 @@ export default function Page() {
     <div classname='w-screen bg-[#252422]'>
       <Navbar></Navbar>
       <div className="text-black h-[2000px] bg-[#252422]">
-        <div className='relative text-6xl text-white top-[150px] left-[7.5%] w-[85%] flex justify-center'>
+        <div className='relative text-6xl text-[#EB5E28] top-[150px] left-[7.5%] w-[85%] flex justify-center'>
           Videos
         </div>
         <div className="relative h-full w-[85%] left-[7.5%] top-[200px] flex flex-col justfiy-center gap-[110px]">

@@ -11,13 +11,13 @@ export default function Page() {
         <div classname='w=screen h=3000'>
             <Navbar></Navbar>
             <div className="text-black h-[4000px] bg-[#252422]">
-                <div className='absolute mb-8 text-6xl text-white top-[150px] w-full flex justify-center'>
+                <div className='absolute mb-8 text-6xl text-[#EB5E28] top-[150px] w-full flex justify-center'>
                     About the Project
                 </div>
 
                 <div className='relative h-[700px] flex flex-row justify-around'>
                     <div className="flex flex-col justify-evenly w-[60%]">
-                    <div className='relative text-2xl text-4xl underline text-white top-[250px] flex justify-center w-[40%] left-[25.5%] h-auto text-wrap'>
+                    <div className='relative text-2xl text-4xl underline text-[#EB5E28] top-[250px] flex justify-center w-[40%] left-[25.5%] h-auto text-wrap'>
                         Components
                     </div>
                     <div className="relative text-2xl text-4xl text-white top-[130px] -mt-[40px] flex justify-center w-[60%] left-[25.5%] h-auto">
@@ -42,7 +42,7 @@ export default function Page() {
                 </div>
                 
                 <div className="relative left-[300px]">
-                    <div className='relative text-2xl text-4xl underline text-white flex justify-center w-[40%] right-[25.5%] h-auto text-wrap'>
+                    <div className='relative text-2xl text-4xl underline text-[#EB5E28] flex justify-center w-[40%] right-[25.5%] h-auto text-wrap'>
                         Intelligence
                     </div>
                     <div className="relative text-2xl text-4xl text-white top-[60px] -mt-[40px] flex justify-center w-[100%] right-[25.5%] h-auto">
@@ -59,17 +59,12 @@ export default function Page() {
             <div className="relative h-[20px] opacity-50"></div>
 
             <div className='relative h-[700px] flex flex-row justify-around'>
-                    <div className="flex flex-col justify-evenly w-[60%]">
-                    <div className='relative text-2xl text-4xl underline text-white flex justify-center w-[40%] left-[25.5%] h-auto text-wrap'>
+                    <div className="flex flex-col justify-evenly w-[60%] items-left">
+                    <div className='relative text-2xl text-4xl underline text-[#EB5E28] flex justify-center w-[40%] left-[25.5%] h-auto text-wrap'>
                         Algorithm
                     </div>
-                    <div className="relative text-2xl text-4xl text-white -mt-[200px] flex justify-center w-[60%] left-[25.5%] h-auto">
-                        <ul className="list-disc list-inside">
-                            <li>Raspberry Pi 4</li>
-                            <li>2 Ultrasonic Sensors</li>
-                            <li>Arducam 5MP</li>
-                            <li>2 DC Motors</li>
-                        </ul>
+                    <div className="relative text-2xl text-wrap text-2xl text-white top-[25px] -mt-[200px] flex justify-center w-[60%] left-[25.5%] h-auto">
+                    Our system using a two state autonomous system to survey the crisis data for various objects such as survivors and collect panoramic data of the scene. Our approach has been optimized to maximize the Raspberry Pi's performance by utilizing threads and minimal image processing techniques. A general overview of the system is shown to the left.
                     </div>
                     </div>
                     <div className="flex flex-col justify-center">
