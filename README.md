@@ -46,4 +46,4 @@ Next steps are to continue to improve the speed of the program to make the live 
 
 * **Control System:** numpy, threading, time, sockets, struct
 * **Computer Vision and Image Processing:** cv2, ultralytics, supervision, picamera2
-* **Drivers:** Many thanks to (John Deere)[https://github.com/jameskabbes/HackIllinois2024/tree/main]
+* **Drivers:** Many thanks to [John Deere](https://github.com/jameskabbes/HackIllinois2024/tree/main)
