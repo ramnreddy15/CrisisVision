@@ -1,4 +1,4 @@
-# [Project Website](https://www.crisis-vision.vercel.app)
+# [Project Website](https://crisis-vision.vercel.app/)
 
 ![Banner](banner.png)
 
