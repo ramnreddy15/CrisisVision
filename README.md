@@ -41,3 +41,9 @@ The first thing we learned was that version compatability is very important betw
 
 ## What's Next
 Next steps are to continue to improve the speed of the program to make the live feed and autonomous navigation more fluid and snappy. This autonomous vehicle can also be improved upon by adding extensions that can move debris or objects around to clear a path for itself or to help people that are stuck.   
+
+## Dependencies
+
+* **Control System:** numpy, threading, time, sockets, struct
+* **Computer Vision and Image Processing:** cv2, ultralytics, supervision, picamera2
+* **Drivers:** Many thanks to (John Deere)[https://github.com/jameskabbes/HackIllinois2024/tree/main]
