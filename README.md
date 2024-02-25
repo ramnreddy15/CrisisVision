@@ -3,7 +3,7 @@
 
 ## Description
 
-Search and rescue is crucial during situations such as natural disasters to save lives. However, these natural disasters can pose a risk to the the safety of the search and rescue teams members. crisisvision is an autonomous search and rescue surveillance vehicle designed to map out its surroundings to help search and rescue teams assess the situation from a safe distance.
+There are some situations such as natural disasters and war zones where it's critical for them to gather information about the surroundings. However, these environments can pose a risk to the the safety of those involved. crisisvision is an autonomous surveillance vehicle designed to map out its surroundings to help those types of people assess the situation from a safe distance.
 
 
 ## Requirements
