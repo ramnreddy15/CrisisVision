@@ -1,6 +1,6 @@
 # CrisisVision
 
-![Banner](rect1.jpg)
+![Banner](banner.png)
 
 ## Description
 
