@@ -3,7 +3,7 @@
 
 ## Description
 
-There are some situations such as natural disasters and war zones where it's critical for them to gather information about the surroundings. However, these environments can pose a risk to the the safety of those involved. crisisvision is an autonomous surveillance vehicle designed to map out its surroundings to help those types of people assess the situation from a safe distance.
+There are some situations such as natural disasters and war zones where it's critical for people to gather information about the surroundings. However, these environments can pose a risk to the the safety of those involved. crisisvision is an autonomous surveillance vehicle designed to map out its surroundings to help those types of people assess the situation from a safe distance.
 
 
 ## Requirements
