@@ -17,10 +17,11 @@ picam2 = Picamera2()
 config = picam2.create_preview_configuration({'format': 'RGB888'})
 picam2.configure(config)
 picam2.start()
-frame = picam2.capture_array()
-frameS = json.dumps(frame.tolist()).encode()
-#framef = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
-#data = pickle.dumps(frame)
-message_size = struct.pack(">Q", len(frameS)) ### CHANGED
-clientsocket.sendall(message_size)
-clientsocket.sendall(frameS)
+while True:
+    frame = picam2.capture_array()
+    frameS = json.dumps(frame.tolist()).encode()
+    #framef = cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR)
+    #data = pickle.dumps(frame)
+    message_size = struct.pack(">Q", len(frameS)) ### CHANGED
+    clientsocket.sendall(message_size)
+    clientsocket.sendall(frameS)
