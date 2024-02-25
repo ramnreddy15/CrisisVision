@@ -73,7 +73,7 @@ export default function Page() {
                     </div>
                     </div>
                     <div className="flex flex-col justify-center">
-                        <div className='relative rounded-md border-4 border-solid border-white w-[600px] h-[450px] right-[30px] bg-cover bg-no-repeat bg-[url("/bot3.jpg")]'></div>
+                        <div className='relative rounded-md border-4 border-solid border-white w-[600px] h-[450px] right-[30px] bg-cover bg-no-repeat bg-[url("/algo.png")]'></div>
                     </div>
             </div>
 
