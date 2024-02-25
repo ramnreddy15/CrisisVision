@@ -19,25 +19,32 @@ To install the repository, run `git clone <HTTPS URL>`
 
 ## What it Does
 
-When the autonomous vehicle is deployed to a natural disaster area, it will move around the area, ensuring that it avoids any obstacles in its way. While it's navigating around, it will provide a live feed of the area to another device. It will go through two modes, the first one is annotating the live feed, and the second one is taking pictures to stitch together as a panoramic image. These two modes will continuously run one after another. The autonomous navigation and camera feed are are run simultaneously via threading to improve speeds and performance. For the object detection, we decided to use a YOLOv8 model to annotate what the camera sees. We used the socket library for the server-client connection for the arducam. 
+* Vehicle will move around in the area while avoiding any obstacles
+* Simultaneously, it will provide a live feed of the area to another device
+* Annotate live feed using a YOLOv8 model
+* After a certain time, it will spin around to take pictures and stitch them together
+* Once it spins a full circle, it will go back to moving around and show a live feed
+
 
 ## Challenges
 
-The first challenge was setting up all the hardware. Our Raspberry Pi often crashed when we were logged into it due to the network blocking it from accessing anything on the web. Luckily, we were able to resolve by using another network.
+1) Raspberry Pi often crashed when trying to log in. This was a result of the network blocking it from accessing the web. 
 
-The second and biggest challenge was integrating the code and testing it on the Raspberry Pi. When we were working on the server-client connection to stream video, we were able to get it to work between Windows laptops. However, when we tested it on the Raspberry Pi, we ran into issues that had to be debugeed and resolved. We tried a lot of different methods to fix the issues, and while we were able to resolve it, it was a huge setback for us.
+2) Code integration and testing on Raspberry Pi. We got the server-client connection to stream video between Windows laptops, but when we tested it on the Raspberry Pi, we ran into issues that had to be debugged and resolved. 
 
-The third challenge was optimizing the code. The working draft of the code did not have a very high frame rate. For this to be used in a real natural disaster event, the feed must be able to have a higher frame rate. Therefore, we had to optimize the code to reduce the amount of computations.
+3) Code optimization. The first working draft of the code did not output a very high frame rate, so opmizations had to be made to increase the frame rate for this to be able to be used in a real natural disaster event.
 
 ## Accomplishments
 
-We created a vehicle that could move and avoid obstacles autonomously. In addition, we got a live feed with the annotations from the YOLOv8 model to be sent and received by another device. 
-The code was also optimized to the point where the arducam outputed a video that was at a respectable frame rate. 
+* Created a vehicle that could move and avoid obstacles autonomously.
+* Created a live feed with the annotations from the YOLOv8 model to be sent and received by another device. 
+* Optimized the code to where the arducam outputed a video that was at a respectable frame rate. 
 
 
 ## What We Learned
 
-The first thing we learned was that version compatability is very important between server and client devices when using python sockets. This issue led to the second thing we learned which was that deleting and reinstalling python can create a lot of issues. We attempted to do that because of the version compatability, but it just caused more problems for our Raspberry Pi. 
+1) Version compatability is very important between server and client devices when using python sockets. This issue led to the second thing we learned.
+2) Deleting and reinstalling python can create a lot of issues. We attempted to do that because of the version compatability, but it just caused more problems for our Raspberry Pi. 
 
 ## What's Next
 Next steps are to continue to improve the speed of the program to make the live feed and autonomous navigation more fluid and snappy. This autonomous vehicle can also be improved upon by adding extensions that can move debris or objects around to clear a path for itself or to help people that are stuck.   
