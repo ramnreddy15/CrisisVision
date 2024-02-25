@@ -8,7 +8,7 @@ Search and rescue is crucial during situations such as natural disasters to save
 
 The vehicle requires many python libraries to be installed.  
 To install them, run:  
-`pip3 install -r requirements.txt`
+`pip3 install -r requirements.txt --break-system-packages`
 
 ## Installation
 
