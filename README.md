@@ -36,9 +36,7 @@ The code was also optimized to the point where the arducam outputed a video that
 
 ## What We Learned
 
-Do not delete and reinstall python
-Compatability is very important between host-client connections.
-
+The first thing we learned was that version compatability is very important between server and client devices when using python sockets. This issue led to the second thing we learned which was that deleting and reinstalling python can create a lot of issues. We attempted to do that because of the version compatability, but it just caused more problems for our Raspberry Pi. 
 
 ## What's Next
 Next steps are to continue to improve the speed of the program to make the live feed and autonomous navigation more fluid and snappy. This autonomous vehicle can also be improved upon by adding extensions that can move debris or objects around to clear a path for itself or to help people that are stuck.   
