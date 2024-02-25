@@ -24,7 +24,7 @@ export default function Navbar() {
             <div className="w-full h-full flex flex-row justify-between items-center p-7 pl-9 pr-9">
                 <div className="flex flex-row gap-12 font-ander font-bold text-2xl">
                     <Link href='/' className="hover:underline">
-                        VentureVision
+                        crisisvision.
                     </Link>
                 </div>
                 <div className="gap-10 flex flex-row">
@@ -34,8 +34,8 @@ export default function Navbar() {
                     <Link href='/team' className="hover:underline">
                         Team
                     </Link>
-                    <Link href='/process' className="hover:underline">
-                        Process
+                    <Link href='/videos' className="hover:underline">
+                        Videos
                     </Link>
                     <Link href='/about' className="hover:underline">
                         About

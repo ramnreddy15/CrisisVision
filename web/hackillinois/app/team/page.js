@@ -1,24 +1,13 @@
-'use client'
-import { useState } from "react";
+
 import Navbar from "../components/navbar";
+import { Lexend } from "next/font/google";
+
+
+const lexend = Lexend({ subsets: ["latin"] })
 
 export default function Page(){
-    const [asdf, setAsdf] = useState('')
-    if (typeof window !== "undefined") {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY
-            console.log(window.scrollY)
-
-            if (scrolled >= 50) {
-                setAsdf('black')
-            } else {
-                setAsdf('')
-            }
-
-        })
-    }
     return(
-        <div classname='w=screen h=3000'>
+        <div classname='w=screen h=3000 ${lexend.className}'>
             <Navbar></Navbar>
             <div className="text-black h-[1200px] bg-[#252422]">
                 <div className='absolute mb-8 text-6xl text-white top-[150px] w-full flex justify-center'>

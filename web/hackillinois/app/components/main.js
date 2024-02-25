@@ -8,10 +8,10 @@ export default function Main() {
         <div className="w-full h-[900px] bg-cover bg-top bg-no-repeat bg-[url('/bot2.jpeg')] opacity-50">
         </div>
         <div className='absolute text-white top-[200px] left-[100px] text-6xl font-bold w-[85%] h-[50px] flex flex-row justify-center items-center opacity-100'>
-          Introducing VentureVision - The next step in disaster relief
+          Introducing crisisvision - The next step in disaster surveillance
         </div>
   
-      <div className="text-white text-5xl mt-10 font-bold top-20 w-full justify-center flex">
+      <div className="text-white text-5xl mt-10 font-bold top-40 w-full justify-center flex">
         Use Cases
         </div>
   
@@ -23,7 +23,7 @@ export default function Main() {
               Forest Fires
             </div>
               <div className="text-3xl justify-center text-wrap">
-                VentureVision can be used to detect forest fires and alert the proper authorities
+                CrisisVision can be used to survey fires and stream a live feed of the affected area.
               </div>
           </div>
       </div>
@@ -34,7 +34,7 @@ export default function Main() {
             Hurricanes
           </div>
           <div className="text-3xl text-wrap">
-            VentureVision can be used to detect hurricane damage and alert the proper authorities
+            CrisisVision can be used to survey hurricane damage and detect trapped individuals or animals.
           </div>
           </div>          
           <div className="relative rounded-md w-[50%] h-[560px] right-0 bg-cover bg-no-repeat bg-[url('/hurricaneaftermath.jpg')]">
@@ -42,14 +42,14 @@ export default function Main() {
       </div>
       
       <div className='relative w-auto m-8 pt-12 h-[500px] flex justify-around'>
-          <div className="relative rounded-md w-[60%] h-[560px] bg-cover bg-no-repeat bg-[url('/forestfire.jpg')]">
+          <div className="relative rounded-md w-[60%] h-[560px] bg-cover bg-no-repeat bg-[url('/warzone.avif')]">
           </div>
           <div className='relative text-white top-40 w-[25%]'>
             <div className="text-5xl mb-8 justify-center text-wrap">
-              Forest Fires
+              Warzones
             </div>
               <div className="text-3xl justify-center text-wrap">
-                VentureVision can be used to detect forest fires and alert the proper authorities
+                CrisisVision can be used as a first contact in warzones to survey the area and detect any potential threats without risking individuals.
               </div>
           </div>
       </div>
