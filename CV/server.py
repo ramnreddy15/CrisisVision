@@ -32,7 +32,7 @@ while(True):
 
     # send our 0 ack
     data = json.loads(data.decode())
-    data = np.array(data)
+    data = np.array(data).astype(np.uint8)
     # cv2.imwrite("test.jpg", data)
     cv2.imshow('frame', data)
     cv2.waitKey(1)
