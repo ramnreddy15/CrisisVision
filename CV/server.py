@@ -36,14 +36,15 @@ while(True):
         data += conn.recv(4096 if to_read > 4096 else to_read)
 
     data = np.frombuffer(data, dtype='uint8').reshape((480,640,3))
-    result = model(data, conf=0.8)[0]
+    data = cv2.rotate(data, cv2.ROTATE_180)
+    result = model(data, conf=0.2)[0]
     detections = sv.Detections.from_ultralytics(result)
     labels = [
         model.model.names[class_id]
         for class_id
         in detections.class_id
     ]
-    frame = box_annotator.annotate(
+    data = box_annotator.annotate(
         scene=data, 
         detections=detections,
         labels=labels
