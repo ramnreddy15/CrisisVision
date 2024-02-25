@@ -1,5 +1,7 @@
 # CrisisVision
 
+![Banner](rect1.jpg)
+
 ## Description
 
 Search and rescue is crucial during situations such as natural disasters to save lives. However, these natural disasters can pose a risk to the the safety of the search and rescue teams members. CrisisVision is an autonomous search and rescue surveillance vehicle designed to map out its surroundings to help search and rescue teams assess the situation from a safe distance.
