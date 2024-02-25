@@ -8,7 +8,7 @@ export default function Main() {
         <div className="w-full h-[900px] bg-cover bg-top bg-no-repeat bg-[url('/bot2.jpeg')] opacity-40">
         </div>
         <div className='absolute text-white top-[225px] left-[100px] text-8xl font-bold w-[85%] h-[50px] flex flex-col items-start opacity-100'>
-          Introducing crisisvision
+          Introducing crisisvision.
           <span className="text-wrap text-5xl text-[#EB5E28]">surveying the world's most dangerous frontiers</span>
         </div>
   
