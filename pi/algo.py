@@ -1,5 +1,4 @@
 #Required Packages for Self-Driving Algorithm
-import asyncio
 import numpy
 import threading
 import time
@@ -10,10 +9,6 @@ import numpy as np
 import socket
 import struct
 from picamera2 import Picamera2
-
-#Object Detection and Annotation
-import supervision as sv
-from ultralytics import YOLO
 
 #DS Sensor and Motor Drivers
 from src import ds
@@ -51,24 +46,15 @@ motor2 = m.Motor({
     }
 })
 
-#You Only Look Once (YOLO)
-box_annotator = sv.BoxAnnotator(
-    thickness=2,
-    text_thickness=2,
-    text_scale=1
-)
-label_annotator = sv.LabelAnnotator()
-
 
 class SDNode:
     def __init__(self):
-        #Vehicles Object Detection Model
-        self.model = YOLO("yolov8n.pt")
         #Vehicles Control Variables and Data
         self.ds1 = 0
         self.ds2 = 0
         self.speed = 5
         self.turnspeed = 2
+        self.frame = np.zeros((480,640,3), dtype='uint8')
         #Start Sockets Connection to Send Real Time Image Data to Remote Monitors
         self.clientsocket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.clientsocket.connect(('192.168.111.51',8009))
@@ -107,33 +93,26 @@ class SDNode:
                 motor1.forward(self.speed)
                 motor2.forward(self.speed)
 
-    def imgProc(self):
+    def imgWrite(self):
+        while True:        
+            self.frame = self.picam2.capture_array()
+
+
+    def imgRelay(self):
         while True:
-            frame = self.picam2.capture_array()
-            result = self.model(frame, conf=0.2)[0]
-            detections = sv.Detections.from_ultralytics(result)
-
-            labels = [
-                self.model.model.names[class_id]
-                for class_id
-                in detections.class_id
-            ]
-
-            frame = box_annotator.annotate(
-                scene=frame,
-                detections=detections,
-                labels=labels
-                )
-            
-            frameS = frame.tobytes()
+            print(self.frame.size, self.frame.dtype)
+            frameS = self.frame.tobytes()
             message_size = struct.pack(">Q", len(frameS))
             self.clientsocket.sendall(message_size)
             self.clientsocket.sendall(frameS)
+
            
     def spawnThreads(self):
         threading.Thread(target=self.getDSData).start()
         threading.Thread(target=self.selfDrive).start()
-        threading.Thread(target=self.imgProc).start()
+        threading.Thread(target=self.imgRelay).start()
+        threading.Thread(target=self.imgWrite).start()
+
 
 
 def main():
