@@ -29,6 +29,7 @@ To install the repository, run `git clone <HTTPS URL>`
 
 ![System Diagram](hackilflow.png)
 
+Our system using a two state autonomous system to survey the crisis data for various objects such as survivors and collect panoramic data of the scene. Our approach has been optimized to maximize the Raspberry Pi's performance by utilizing threads and minimal image processing techniques. A general overview of the system is shown above.
 
 ## Challenges
 
@@ -42,8 +43,7 @@ To install the repository, run `git clone <HTTPS URL>`
 
 * Created a vehicle that could move and avoid obstacles autonomously.
 * Created a live feed with the annotations from the YOLOv8 model to be sent and received by another device. 
-* Optimized the code to where the arducam outputed a video that was at a respectable frame rate. 
-
+* Optimized the code using threads and image processing techniques which allowed for the arducam to output a video that was at a respectable frame rate. 
 
 ## What We Learned
 
