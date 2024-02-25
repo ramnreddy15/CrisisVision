@@ -45,7 +45,7 @@ Our system using a two state autonomous system to survey the crisis data for var
 
 ## Accomplishments
 
-* Created a vehicle that could effectively navigate unknown environments autonomously.
+* Created a vehicle that could effectively navigate **unknown environments autonomously**.
 * Created a real time feed with **sub 20 millisecond** annotations using the YOLOv8 model.
 * Optimized the code using threads and image processing techniques which allowed for the arducam to output a video that was at a respectable frame rate **(~5-10x faster FPS)**. 
 
