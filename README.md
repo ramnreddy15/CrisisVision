@@ -1,4 +1,3 @@
-# CrisisVision
 
 ![Banner](banner.png)
 
