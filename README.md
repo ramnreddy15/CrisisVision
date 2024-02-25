@@ -1,9 +1,10 @@
+# [Project Website](crisis-vision.vercel.app)
 
 ![Banner](banner.png)
 
 ## Description
 
-There are some situations such as natural disasters and war zones where it's critical for people to gather information about the surroundings. However, these environments can pose a risk to the the safety of those involved. crisisvision is an autonomous surveillance vehicle designed to map out its surroundings to help those types of people assess the situation from a safe distance.
+There are some situations such as natural disasters and war zones where it's critical for people to gather information about the surroundings. However, these environments can pose a risk to the safety of those involved. crisisvision is an autonomous surveillance vehicle designed to map out its surroundings to help those types of people assess the situation from a safe distance.
 
 
 ## Requirements
@@ -19,10 +20,10 @@ To install the repository, run `git clone <HTTPS URL>`
 
 ## What it Does
 
-* Vehicle will move around in the area while avoiding any obstacles
-* Simultaneously, it will provide a live feed of the area to another device
-* Annotate live feed using a YOLOv8 model
-* After a certain time, it will spin around to take pictures and stitch them together
+* Vehicle will move around in the crisis area while avoiding any obstacles
+* Simultaneously, it will provide a live feed of the area to another device for the operators to viewe the surroundings
+* Annotate live feed using a YOLOv8 model to detect objects and hazards
+* After live surveying for a period of time, it will spin around to take pictures and stitch them together to produce a panoramic image.
 * Once it spins a full circle, it will go back to moving around and show a live feed
 
 ## How it Works
