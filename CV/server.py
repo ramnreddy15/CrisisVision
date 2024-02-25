@@ -5,7 +5,7 @@ import cv2
 from ultralytics import YOLO
 import supervision as sv
 
-HOST = '192.168.252.241'
+HOST = '192.168.111.51'
 PORT = 8009
 
 model = YOLO("yolov8n.pt")
@@ -31,23 +31,47 @@ while(True):
     bs = conn.recv(8)
     (length,) = unpack('>Q', bs)
     data = b''
-    while len(data) < length:
-        to_read = length - len(data)
-        data += conn.recv(4096 if to_read > 4096 else to_read)
+    size = b''
+    print(length)
+    if length<10000:
+        print("mode2")
+        while len(size) < length:
+            to_read = length - len(size)
+            size = conn.recv(4096 if to_read > 4096 else to_read)
+        size = size.decode()
+        size = size.replace(",","")
+        size = size.replace(")","")
+        size = size.replace("(","")
+        size = [int(i) for i in size.split(" ")]
+        print(tuple(size))
+        bs = conn.recv(8)
+        (length,) = unpack('>Q', bs)
+        while len(data) < length:
+            to_read = length - len(data)
+            data += conn.recv(4096 if to_read > 4096 else to_read)
+        data = np.frombuffer(data, dtype='uint8').reshape(size)
+        data = cv2.rotate(data, cv2.ROTATE_180)
+    else:
+        while len(data) < length:
+            to_read = length - len(data)
+            data += conn.recv(4096 if to_read > 4096 else to_read)
+        data = np.frombuffer(data, dtype='uint8').reshape((480,640,3))
+        data = cv2.rotate(data, cv2.ROTATE_180)
+        result = model(data, conf=0.2)[0]
+        detections = sv.Detections.from_ultralytics(result)
+        labels = [
+            model.model.names[class_id]
+            for class_id
+            in detections.class_id
+        ]
+        data = box_annotator.annotate(
+            scene=data, 
+            detections=detections,
+            labels=labels
+        )
 
-    data = np.frombuffer(data, dtype='uint8').reshape((480,640,3))
-    data = cv2.rotate(data, cv2.ROTATE_180)
-    result = model(data, conf=0.2)[0]
-    detections = sv.Detections.from_ultralytics(result)
-    labels = [
-        model.model.names[class_id]
-        for class_id
-        in detections.class_id
-    ]
-    data = box_annotator.annotate(
-        scene=data, 
-        detections=detections,
-        labels=labels
-    )
+        
+
+    
     cv2.imshow('frame', data)
     cv2.waitKey(1)
