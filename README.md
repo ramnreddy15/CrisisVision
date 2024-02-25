@@ -25,6 +25,10 @@ To install the repository, run `git clone <HTTPS URL>`
 * After a certain time, it will spin around to take pictures and stitch them together
 * Once it spins a full circle, it will go back to moving around and show a live feed
 
+## How it Works
+
+![System Diagram](hackilflow.png)
+
 
 ## Challenges
 
