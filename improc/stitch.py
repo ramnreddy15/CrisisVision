@@ -16,7 +16,7 @@ for i in range(5):
     time.sleep(.5)
 
 cap.release()
-
+print(images)
 
 stitcher = cv2.Stitcher_create()
 status, result = stitcher.stitch(images) # images is list of images

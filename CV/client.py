@@ -19,8 +19,11 @@ cap=cv2.VideoCapture(0)
 # cap.set(cv2.CAP_PROP_FRAME_WIDTH,)
 # cap.set(cv2.CAP_PROP_FRAME_WIDTH,480)
 clientsocket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-clientsocket.connect(('192.168.252.241',8009))
+clientsocket.connect(('192.168.111.241',8009))
+
 # clientsocket.connect(('localhost',8089))
+
+sockfile = clientsocket.makefile('wb')
 
 while True:
     ret,frame=cap.read()
@@ -52,4 +55,6 @@ while True:
     message_size = struct.pack("L", len(data)) ### CHANGED
 
     # Then data
-    clientsocket.sendall(message_size + data)
+    sockfile.write(message_size + data)
+    sockfile.flush()
+    # clientsocket.sendall(message_size + data)
